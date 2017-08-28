@@ -1,0 +1,25 @@
+--- piper-0.2.900.orig/meson.build	2017-08-25 05:28:07.000000000 +0100
++++ piper-0.2.900/meson.build	2017-08-28 12:51:49.790513353 +0100
+@@ -4,7 +4,13 @@
+ 	meson_version: '>= 0.40.0')
+ 
+ # Dependencies
+-dependency('python3', required: true)
++python = import('python3')
++python_bin = python.find_python()
++if not python_bin.found()
++    error('No valid python3 binary found')
++else
++    message('Found python3 binary')
++endif
+ dependency('pygobject-3.0', required: true)
+ 
+ # Gtk version required
+@@ -21,7 +27,6 @@
+ subdir('po')
+ 
+ # Find the directory to install our Python code
+-python = import('python3')
+ py3 = python.find_python()
+ message('Getting Python3 install dir')
+ python_dir = python.sysconfig_path('purelib')
