@@ -13,7 +13,7 @@ LICENSE="GPL-2"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
 
-RDEPEND="media-libs/libsdl2
+RDEPEND="media-libs/libsdl
     media-libs/freetype:2
     media-libs/libpng
     sys-libs/zlib"
