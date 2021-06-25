@@ -22,7 +22,8 @@ DEPEND="${RDEPEND}"
 # TODO: add any deps that aren't explicitly mentioned in INSTALL.md
 
 src_compile() {
-    emake prefix=/usr ARCH=linux RELEASE=1 RELEASE_FLAGS="${CFLAGS}" cap32
+    emake prefix=/usr APP_PATH=/etc/caprice32 \
+          ARCH=linux RELEASE=1 RELEASE_FLAGS="${CFLAGS}" cap32
 
     # Fix the config file to use our specified prefix
     sed -i -e "s:/usr/local/share/caprice32/:/usr/share/caprice32/:" cap32.cfg \
