@@ -26,8 +26,8 @@ src_compile() {
           ARCH=linux RELEASE=1 RELEASE_FLAGS="${CFLAGS}" cap32
 
     # Fix the config file to use our specified prefix
-    sed -i -e "s:/usr/local/share/caprice32/:/usr/share/caprice32/:" cap32.cfg \
-    || die "Fixing paths in cap32.cfg failed!"
+    sed -i -e "s:__SHARE_PATH__:/usr/share/caprice32:" cap32.cfg.tmpl \
+    || die "Fixing paths in cap32.cfg.tmpl failed!"
 }
 
 src_install() {
@@ -39,3 +39,4 @@ src_install() {
     doicon "${FILESDIR}/cpc.png"
     make_desktop_entry /usr/bin/cap32 Caprice32 cpc Game
 }
+
