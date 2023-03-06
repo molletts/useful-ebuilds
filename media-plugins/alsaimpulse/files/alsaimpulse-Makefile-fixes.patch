@@ -1,0 +1,14 @@
+--- alsaimpulse/Makefile.orig	2023-03-04 15:54:27.108698298 +0000
++++ alsaimpulse/Makefile	2023-03-04 20:32:21.974865206 +0000
+@@ -1,8 +1,8 @@
+ CC?=clang
+-CFLAGS=-std=c99 -shared -fPIC -DPIC -Wall -O3
+-LDFLAGS=-lasound -lfftw3f -lm -lsamplerate
++CFLAGS:=-std=c99 -shared -fPIC -DPIC -Wall $(CFLAGS)
++LDFLAGS:=-lasound -lfftw3f -lm -lsamplerate $(LDFLAGS)
+ 
+-all: libasound_module_pcm_impulse.so libasound_module_pcm_impulse32.so
++all: libasound_module_pcm_impulse.so
+ 
+ install: all
+ 	install -m755 libasound_module_pcm_impulse.so /usr/lib/alsa-lib/libasound_module_pcm_impulse.so
