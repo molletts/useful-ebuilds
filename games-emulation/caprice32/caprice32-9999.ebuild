@@ -1,9 +1,9 @@
 # Copyright 1999-2018 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=7
+EAPI=8
 
-inherit eutils git-r3 desktop
+inherit git-r3 desktop
 
 DESCRIPTION="Amstrad CPC emulator"
 HOMEPAGE="https://github.com/ColinPitrat/caprice32"
